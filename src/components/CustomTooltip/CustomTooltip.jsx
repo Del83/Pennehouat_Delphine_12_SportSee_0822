@@ -6,7 +6,6 @@ import "./CustomTooltip.css";
  * @param {array} payload data to display in the tooltip
  * @return {JSX} React tooltip component 
  */
-
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
 

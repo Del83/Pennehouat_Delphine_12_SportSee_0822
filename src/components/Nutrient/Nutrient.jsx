@@ -12,7 +12,6 @@ import "./Nutrient.css";
  * @param {Number} value Nutrient value
  * @returns {JSX} Component react nutrient card
  */
-
 const NutrientCard = ( { categorie, value } ) => {
         let nutrientCardCat = { title: '', icon: '',  unit: '', color: '' }
         switch (categorie) {

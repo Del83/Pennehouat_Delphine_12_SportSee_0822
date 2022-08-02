@@ -5,7 +5,6 @@ import "./ProfilUser.css";
  * @param {string} name user name 
  * @return {JSX} Profile react component  
  */
-
 function ProfilUser ( { name } ) {
     return (
         <div className="profil-user">

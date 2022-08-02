@@ -9,7 +9,6 @@ import "./Performance.css";
  * @param {Object} kind Performance category
  * @returns {JSX} React radar chart component using Recharts
  */
-
 function Performance( { data, kind } ) {
 
     const titleKind = {

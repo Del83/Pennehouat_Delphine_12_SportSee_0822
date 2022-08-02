@@ -12,9 +12,7 @@ import "./Activity.css";
  * @param {String} yDataKey1 User weight data
  * @param {String} yDataKey2 Number of calories
  * @returns {JSX} React bar chart component using Recharts
- */
-
-function Activity( { title, data, xDataKey, yDataKey1, yDataKey2 } ) {
+ */function Activity( { title, data, xDataKey, yDataKey1, yDataKey2 } ) {
 
     const dateDay = (value)=>(new Date(value)).getDate()
     

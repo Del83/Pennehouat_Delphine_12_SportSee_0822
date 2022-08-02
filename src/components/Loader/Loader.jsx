@@ -1,11 +1,9 @@
 import './Loader.css';
 
-
 /**
  * Create loader
  * @return {JSX} Loading React component
  */
-
 function Loader() {
     return (
         <div className="loader">

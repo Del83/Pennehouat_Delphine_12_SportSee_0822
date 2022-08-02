@@ -7,7 +7,6 @@ import "./Score.css";
  * @param {Array} data Score data 
  * @return {JSX} React radial chart component using Recharts
  */
-
 function Score( { data } ) {
 
     const scoreMax = {

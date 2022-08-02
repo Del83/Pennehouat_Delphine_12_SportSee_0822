@@ -11,7 +11,6 @@ import "./AverageSessions.css";
  * @param {String} title Title of the chart
  * @returns {JSX} React line chart component using Recharts
  */
-
 function AverageSessions ( { data, title } ) {
 
     const CustomCursor = (props) => {
