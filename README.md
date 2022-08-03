@@ -92,4 +92,6 @@ yarn start
 
 ### 6. JSdoc
 
+---
+
 You can also run the JSdoc by opening **out/index.html** file in Live Server.
