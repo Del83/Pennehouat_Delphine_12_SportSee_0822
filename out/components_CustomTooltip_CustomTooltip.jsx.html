@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/CustomTooltip/CustomTooltip.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/CustomTooltip/CustomTooltip.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import propTypes from 'prop-types';
+import "./CustomTooltip.css";
 
+/** Custom tooltip
+ * @param {boolean} active indicates if tooltip active
+ * @param {array} payload data to display in the tooltip
+ * @return {JSX} React tooltip component 
+ */
+const CustomTooltip = ({ active, payload }) => {
+    if (active &amp;&amp; payload &amp;&amp; payload.length) {
 
-    <h3> </h3>
+        return (
+            &lt;div className={payload[0].fill === "#fff" ? "tooltip-sessions" : "tooltip-activity"}>
+                &lt;ul className={payload[0].fill === "#fff" ? "tooltip-ctn-sessions" : "tooltip-ctn-activity"}>
+                    {payload[0] ? (&lt;li>{payload[0].value} {payload[0].unit}&lt;/li>) : null}
+                    {payload[1] ? (&lt;li>{payload[1].value} {payload[1].unit}&lt;/li>) : null}
+                &lt;/ul>
+            &lt;/div>
+        )
+    }
+}
 
+CustomTooltip.propTypes = {
+    active: propTypes.bool,
+    payload: propTypes.array,
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default CustomTooltip;</code></pre>
+        </article>
+    </section>
 
 
 

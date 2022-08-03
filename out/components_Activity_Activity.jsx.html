@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Activity/Activity.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Activity/Activity.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Suspense} from 'react';
+import propTypes from 'prop-types';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import CustomTooltip from "../CustomTooltip/CustomTooltip"
+import "./Activity.css";
+
+/**
+ * Create an activity bar chart
+ * @param {Array} data Daily activity data 
+ * @param {String} title Title of the chart
+ * @param {String} xDataKey Date of data 
+ * @param {String} yDataKey1 User weight data
+ * @param {String} yDataKey2 Number of calories
+ * @returns {JSX} React bar chart component using Recharts
+ */function Activity( { title, data, xDataKey, yDataKey1, yDataKey2 } ) {
+
+    const dateDay = (value)=>(new Date(value)).getDate()
+    
+    const renderLegend = () => {
+        return (
+            &lt;ul className='legend-ctn'>
+                &lt;li key={`item-poids`} className="legend-poids" > Poids (kg)&lt;/li>
+                &lt;li key={`item-calories`} className="legend-calories" > Calories brûlées (kCal)&lt;/li>
+            &lt;/ul>
+        );
+    }
+
+    return (
+        &lt;div className='activity'>
+                &lt;Suspense fallback={&lt;div>Chargement...&lt;/div>}>
+                    &lt;h2 className='activity-title'> {title} &lt;/h2>     
+                    &lt;ResponsiveContainer width={"100%"} height={325} >  
+                    &lt;BarChart 
+                            width={835} 
+                            height={325} 
+                            data={data} 
+                            margin={ {top: 24, right: 30, bottom: 25, left: 40} } 
+                            barGap={8}
+                        >
+                        &lt;CartesianGrid 
+                            vertical={false} s
+                            trokeDasharray="2 2" 
+                            width={"max-content"}
+                            />
+                        &lt;XAxis 
+                            dataKey={xDataKey} 
+                            tickLine={false}  
+                            stroke= '#DEDEDE' 
+                            tick={{fill: '#9B9EAC', fontSize:"14", fontWeight:"500"}} 
+                            tickFormatter={dateDay} 
+                            height={50}
+                            tickSize={25}
+                            padding={ {top: 0, right: -45, bottom: 20, left: -45} } 
+                            //scale="bande"
+                            />
+                        &lt;YAxis 
+                            yAxisId='kilogram'
+                            orientation='right'                                      
+                            tickLine={false} 
+                            axisLine={false} 
+                            tickSize={45}
+                            tickCount="4" 
+                            type="number" 
+                            domain={['dataMin -1', 'dataMax + 1']} 
+                            allowDecimals={false}
+                            tick={{fill: '#9B9EAC', fontSize:"14", fontWeight:"500"}} 
+                            />
+                        &lt;YAxis 
+                            yAxisId="calories"                     
+                            dataKey={yDataKey2} 
+                            domain={['dataMin-50','dataMax+50']}
+                            hide={true}
+                            />
+
+                        &lt;Tooltip 
+                            content={&lt;CustomTooltip/>} 
+                            offset={35}
+                            cursor={{ fill:"rgba(196, 196, 196, 0.5)", width: 56, transform: "translate(28)" }}
+                            />
+                        &lt;Legend 
+                            iconType="cercle"
+                            iconSize="8"
+                            content={renderLegend}
+                            verticalAlign="top" 
+                        />
+                        &lt;Bar 
+                            name=" Poids (kg)" 
+                            yAxisId='kilogram'                     
+                            dataKey={yDataKey1} 
+                            fill="#282D30" 
+                            barSize={7}  
+                            radius={[3,3,0,0]} 
+                            unit="Kg"
+                        />
+                        &lt;Bar 
+                            name=' Calories brûlées (kCal)' 
+                            yAxisId='calories' 
+                            dataKey={yDataKey2} 
+                            fill="#E60000" 
+                            barSize={7}  
+                            radius={[3,3,0,0]}
+                            unit="Kcal"
+                        />
+                        &lt;/BarChart> 
+                    &lt;/ResponsiveContainer>      
+                &lt;/Suspense>
+        &lt;/div>
+    )
+}
+    
+Activity.propTypes = {
+    title: propTypes.string,
+    data: propTypes.array,
+    xDataKey: propTypes.string,
+    yDataKey1: propTypes.string,
+    yDataKey2: propTypes.string,
+}
+
+export default Activity
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#NutrientCard">NutrientCard</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#ProfilUser">ProfilUser</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SideBar">SideBar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Aug 02 2022 14:56:42 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

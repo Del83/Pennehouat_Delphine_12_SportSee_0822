@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Loader/Loader.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Loader/Loader.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './Loader.css';
 
+/**
+ * Create loader
+ * @return {JSX} Loading React component
+ */
+function Loader() {
+    return (
+        &lt;div className="loader">
+            &lt;div className="loader-firstdot">
+                &lt;div className="dot dot-1">&lt;/div>
+                &lt;div className="dot dot-2">&lt;/div>
+            &lt;/div>
+            &lt;div className="dot dot-3">&lt;/div>
+            &lt;div className="dot dot-4">&lt;/div>
+        &lt;/div>
+    )
+}
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Loader;</code></pre>
+        </article>
+    </section>
 
 
 

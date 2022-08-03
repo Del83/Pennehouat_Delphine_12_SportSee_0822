@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Profil/ProfilUser.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,38 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Profil/ProfilUser.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import propTypes from 'prop-types';
+import "./ProfilUser.css";
 
+/**
+ * @param {string} name user name 
+ * @return {JSX} Profile react component  
+ */
+function ProfilUser ( { name } ) {
+    return (
+        &lt;div className="profil-user">
+            &lt;h1>Bonjour &lt;span className="profil-user-name">{name}&lt;/span>&lt;/h1>
+            &lt;p>Félicitation ! Vous avez explosé vos objectifs hier &amp;#128079;&lt;/p>
+        &lt;/div>
+    )
+}
 
-    <h3> </h3>
+ProfilUser.propTypes = {
+    name: propTypes.string,
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default ProfilUser;</code></pre>
+        </article>
+    </section>
 
 
 

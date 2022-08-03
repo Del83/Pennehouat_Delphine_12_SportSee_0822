@@ -16,7 +16,6 @@ function GetDataFetch() {
         const [error, setError] = useState(false);
 
             useEffect(() => {
-              //if (!url) return setLoading(true);
               async function fetchData() {
                 try {
                   const resUser = await fetch(urlUser);
@@ -52,7 +51,7 @@ function GetDataFetch() {
                 }
               }
               fetchData();
-            }, [userId]);
+            }, );
   
   return {dataUser, dataActivity, dataAverageSessions, dataPerformance, dataPerformanceKind, isLoading, error} 
 }
