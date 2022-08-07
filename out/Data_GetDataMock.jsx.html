@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Layout/Layout.jsx</title>
+    <title>JSDoc: Source: Data/GetDataMock.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Layout/Layout.jsx</h1>
+    <h1 class="page-title">Source: Data/GetDataMock.jsx</h1>
 
     
 
@@ -26,26 +26,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import Header from "./Header"
-import SideBar from "./SideBar"
+            <pre class="prettyprint source linenums"><code>import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../Data/data-mock";
 
 /**
- * * Wrap layout
- * @param {Object} params
- * @param {JSX} params.children
- * @return {JSX} Layout react component
+ * @typedef {Object} UserData
+ * @property {Object} dataUser user main data
+ * @property {Object} dataActivity user activity
+ * @property {Object} dataAverageSessions user average sessions
+ * @property {Object} dataPerformance user performance
+ * @property {Object} dataPerformanceKind user performance
+ * @property {boolean} isLoading loading or loaded
+ * @property {boolean} error error or not
  */
-function Layout ({children}) {
-    return (
-        &lt;div className="layout">
-            &lt;Header />
-            {children}
-            &lt;SideBar />
-        &lt;/div>
-    )
+
+/**
+ * Custom hook that get all user data
+ * @param {Number} userId id of current user
+ * @returns {UserData} data of user
+ */
+function GetDataMock(userId) {
+
+    const userData = USER_MAIN_DATA.find(elem => elem.id === parseInt(userId))
+    const userDataActivity = USER_ACTIVITY.find(elem => elem.userId === parseInt(userId))
+    const userDataAverage = USER_AVERAGE_SESSIONS.find(elem => elem.userId === parseInt(userId))
+    const userDataPerformance = USER_PERFORMANCE.find(elem => elem.userId === parseInt(userId))
+    const isLoading = null
+    const error= null
+    
+    const userDataAverageSessions = userDataAverage.sessions.map(element => ({...element, day : ["L","M","M","J","V","S","D"][element.day - 1]}))
+    const userDataPerformancekind = userDataPerformance.data.map(performance => {
+        return {
+          value: performance.value,
+          kind: performance.kind
+        }
+      })
+    const performanceKind = userDataPerformance.kind
+
+    return { 
+        userData, 
+        userDataActivity, 
+        userDataAverageSessions, 
+        userDataPerformancekind, 
+        performanceKind, 
+        isLoading, 
+        error }
 }
 
-export default Layout;
+export default GetDataMock;
 
 </code></pre>
         </article>

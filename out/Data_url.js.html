@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Layout/Header.jsx</title>
+    <title>JSDoc: Source: Data/url.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Layout/Header.jsx</h1>
+    <h1 class="page-title">Source: Data/url.js</h1>
 
     
 
@@ -26,40 +26,19 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { NavLink } from "react-router-dom";
-import logo from "./logo.svg";
-import "./Layout.css";
+            <pre class="prettyprint source linenums"><code>/**
+ * @const url API url
+ */
+const url = (idUser) => {
+  const urlUser = `http://localhost:3000/user/${idUser}`;
+  const urlActivity = `http://localhost:3000/user/${idUser}/activity`;
+  const urlAverageSessions = `http://localhost:3000/user/${idUser}/average-sessions`;
+  const urlPerformance = `http://localhost:3000/user/${idUser}/performance`;
+  return { urlUser, urlActivity, urlAverageSessions, urlPerformance };
+};
 
-/** Create header 
- * @return {JSX} React header component 
- */ 
-function Header() {
-    return (
-        &lt;header className="header">
-            &lt;div className="header-logo-ctn">
-                &lt;img className="header-logo-img" src={logo} alt="logo" />
-            &lt;/div>
-            &lt;nav className="header-nav">
-                &lt;ul className="header-nav-listctn">
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Accueil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Profil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Réglage&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Communauté&lt;/NavLink>
-                    &lt;/li>
-                &lt;/ul>
-            &lt;/nav>
-        &lt;/header>
-    );
-  }
-  
-  export default Header;</code></pre>
+export default url;
+</code></pre>
         </article>
     </section>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Layout/Header.jsx</title>
+    <title>JSDoc: Source: Pages/Page404.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Layout/Header.jsx</h1>
+    <h1 class="page-title">Source: Pages/Page404.js</h1>
 
     
 
@@ -26,40 +26,25 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { NavLink } from "react-router-dom";
-import logo from "./logo.svg";
-import "./Layout.css";
+            <pre class="prettyprint source linenums"><code>import * as React from "react";
+import image404 from "../assets/logo404.webp";
+import "../Style/Page404.css";
 
-/** Create header 
- * @return {JSX} React header component 
- */ 
-function Header() {
-    return (
-        &lt;header className="header">
-            &lt;div className="header-logo-ctn">
-                &lt;img className="header-logo-img" src={logo} alt="logo" />
-            &lt;/div>
-            &lt;nav className="header-nav">
-                &lt;ul className="header-nav-listctn">
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Accueil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Profil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Réglage&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Communauté&lt;/NavLink>
-                    &lt;/li>
-                &lt;/ul>
-            &lt;/nav>
-        &lt;/header>
-    );
-  }
-  
-  export default Header;</code></pre>
+/**Render the 404 page
+ * @return {JSX}
+ */
+const Page404 = () => {
+  return (
+    &lt;>
+      &lt;div className="page404">
+        &lt;img className="image404" src={image404} alt="image404" />
+      &lt;/div>
+    &lt;/>
+  );
+};
+
+export default Page404;
+</code></pre>
         </article>
     </section>
 

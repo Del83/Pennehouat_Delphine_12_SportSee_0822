@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Layout/Header.jsx</title>
+    <title>JSDoc: Source: components/ProfilUser/ProfilUser.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Layout/Header.jsx</h1>
+    <h1 class="page-title">Source: components/ProfilUser/ProfilUser.jsx</h1>
 
     
 
@@ -26,40 +26,27 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { NavLink } from "react-router-dom";
-import logo from "./logo.svg";
-import "./Layout.css";
+            <pre class="prettyprint source linenums"><code>import propTypes from 'prop-types';
+import "./ProfilUser.css";
 
-/** Create header 
- * @return {JSX} React header component 
- */ 
-function Header() {
+/**
+ * @param {string} name user name 
+ * @return {JSX} Profile react component  
+ */
+function ProfilUser ( { name } ) {
     return (
-        &lt;header className="header">
-            &lt;div className="header-logo-ctn">
-                &lt;img className="header-logo-img" src={logo} alt="logo" />
-            &lt;/div>
-            &lt;nav className="header-nav">
-                &lt;ul className="header-nav-listctn">
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Accueil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Profil&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Réglage&lt;/NavLink>
-                    &lt;/li>
-                    &lt;li className="header-nav-link">
-                      &lt;NavLink to="#">Communauté&lt;/NavLink>
-                    &lt;/li>
-                &lt;/ul>
-            &lt;/nav>
-        &lt;/header>
-    );
-  }
-  
-  export default Header;</code></pre>
+        &lt;div className="profil-user">
+            &lt;h1>Bonjour &lt;span className="profil-user-name">{name}&lt;/span>&lt;/h1>
+            &lt;p>Félicitation ! Vous avez explosé vos objectifs hier &amp;#128079;&lt;/p>
+        &lt;/div>
+    )
+}
+
+ProfilUser.propTypes = {
+    name: propTypes.string,
+}
+
+export default ProfilUser;</code></pre>
         </article>
     </section>
 
