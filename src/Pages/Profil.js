@@ -15,9 +15,8 @@ import GetDataFetch from "../Data/GetDataFetch";
 import "../Style/Profil.css";
 import imageOups from "../assets/oups_image.jpeg";
 
-/**
- * Profil page
- * @returns {JSX}
+/**Render the profil page
+ * @return {JSX}
  */
 function Profil() {
   const {

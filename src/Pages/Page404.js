@@ -2,9 +2,8 @@ import * as React from "react";
 import image404 from "../assets/logo404.webp";
 import "../Style/Page404.css";
 
-/**
- * 404 page
- * @returns {JSX}
+/**Render the 404 page
+ * @return {JSX}
  */
 const Page404 = () => {
   return (

@@ -3,6 +3,21 @@ import { useState, useEffect } from "react";
 import url from "./url";
 
 
+/**
+ * @typedef {Object} UserData
+ * @property {Object} dataUser user main data
+ * @property {Object} dataActivity user activity
+ * @property {Object} dataAverageSessions user average sessions
+ * @property {Object} dataPerformance user performance
+ * @property {Object} dataPerformanceKind user performance
+ * @property {boolean} isLoading loading or loaded
+ * @property {boolean} error error or not
+ */
+
+/**
+ * Custom hook that get all user data
+ * @returns {UserData} data of user
+ */
 function GetDataFetch() {
         let{ id } = useParams();
         let userId = parseInt(id);
